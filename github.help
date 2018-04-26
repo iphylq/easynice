@@ -1,0 +1,18 @@
+#-*-encoding:utf-8-*-
+
+1.本地与github链接：
+ssh-keygen -t rsa -C "duan@hust.edu.cn"
+复制 /home/dqq/.ssh/id_rsa.pub内容到github->setting->SSH and GPG keys->New SSH Key
+
+2.测试连接到github
+ssh -T git@github.com
+
+3.初始化本地以及添加远程仓库
+git init
+git add README.md
+git commit -m 'first commit'
+git remote add origin git@github.com:spancemoon/Reponame.git
+git push -u origin master
+拉取远程数据
+git clone https://github.com/spancemoon/Reponame.git
+
