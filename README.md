@@ -1,2 +1,2 @@
 # easynice
-This is a shortcut for sorts of working tools
+This is series of shortcut settings for sorts of working tools
