@@ -13,6 +13,9 @@ git add README.md
 git commit -m 'first commit'
 git remote add origin git@github.com:spancemoon/Reponame.git
 git push -u origin master
-拉取远程数据
+克隆拉取远程数据
 git clone https://github.com/spancemoon/Reponame.git
+本地与远程无法关联时，多半是远程文件多于本地，即需要merge到本地
+git pull -rebase origin master
+
 
