@@ -18,4 +18,9 @@ git clone https://github.com/spancemoon/Reponame.git
 本地与远程无法关联时，多半是远程文件多于本地，即需要merge到本地
 git pull -rebase origin master
 
+4.关联远程仓库时，fatal:remote origin already exists
+	1)git remote rm origin
+或者还是报错，error:Could not remove config section 'remote origin'
+	2)修改gitconfig文件，删除其中的[remote "origin"]三行
+
 
