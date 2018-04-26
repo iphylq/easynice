@@ -1,0 +1,57 @@
+#!/bin/bash
+# This script is to calculate the total memory space used in the directory selected!
+# First prompted by DQQ in 18 July of 2014
+if [ -d "$1" ]
+then	du -c "$1" | grep total |cut -f1>tmp.txt
+	vari=`cut -f1 tmp.txt`
+	i=0
+	#b=$[ $vari / 1024 ]
+	until [ $[ $vari / 1024 ] -lt 1 ] 
+		do 
+		int=$[ $vari / 1024 ]
+		i=$[ $i + 1 ]
+		mod=$[ $vari % 1024 ]
+		case $i in
+		4)
+		mod4=$mod
+		;;
+		3)
+		mod3=$mod
+		;;
+		2)
+		mod2=$mod
+		;;
+		1)
+		mod1=$mod
+		;;
+		*)
+		;;
+		esac
+		vari=$int
+		#b=$[ $vari / 1024 ]
+		done
+	case $i in 
+	4)
+	echo "The total is :"$vari"PB,"$mod4"TB,"$mod3"GB,"$mod2"MB,"$mod1"KB"
+	;;
+	3)
+	echo "The total is :"$vari"TB,"$mod3"GB,"$mod2"MB,"$mod1"KB"
+	;;
+	2)
+	echo "The total is :"$vari"GB,"$mod2"MB,"$mod1"KB"
+	;;
+	1)
+	echo "The total is :"$vari"MB,"$mod1"KB"
+	;;
+	0)
+	echo "The total is :"$vari"KB"
+	;;
+	*)
+	echo "Memory Out of range!"
+	exit 1
+	;;
+	esac
+else	echo $1":No such directory! Please check your options!"
+	exit 1
+fi
+rm tmp.txt		
